@@ -1,0 +1,113 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    font-size: 62.5%;
+
+    /* cores */
+    --hue-green: 150;
+    --hue-blue: 220;
+
+    --bg:       hsl(var(--hue-blue),  10%, 6%);
+    --controls: hsl(var(--hue-green), 0%,  22%);
+    --text:     hsl(var(--hue-green), 70%, 92%);
+    --secondary:hsl(var(--hue-green), 70%, 92%);
+
+    --primary-light:   hsl(var(--hue-blue),  100%,72%);
+    --primary-dark:    hsl(var(--hue-blue),  80%, 46%);
+    
+    font-size: clamp(0.7rem,0.8rem,62.5%);
+}
+
+html.light{
+    --text:       hsl(var(--hue-blue),  10%, 6%);
+    --bg:     hsl(var(--hue-green), 70%, 92%);
+}
+
+html.light .ph-sun,
+html:not(.light) .ph-moon{
+    display: none;
+}
+
+#toggle-mode{
+    position: absolute;
+    right: 3.2rem;
+    top: 3.2rem;
+    font-size: 3.2rem;
+    line-height: 0;
+    color: var(--primary-light);
+}
+
+body{
+    background-color: var(--bg);
+    color: var(--text);
+    display: grid;
+    height: 100vh;
+    place-content: center;
+}
+
+#app{
+    display: grid;
+    justify-items: center;
+}
+
+.flex{
+    display: flex;
+}
+
+#timer{
+    font-size: 9.6rem;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+#controls{
+    margin-top: 1.6rem;
+    padding: 2.2rem 4rem;
+    gap: 1.6rem;
+    background-color: var(--controls);
+    border-radius: 9rem;
+}
+
+.shady{
+    color: var(--controls);
+    font-weight: lighter;
+    letter-spacing: -0.6rem;
+}
+
+button{
+    background-color: transparent;
+    border: 0;
+    color: var(--primary-light);
+    cursor: pointer;
+    font-size: 6rem;
+}
+
+.secondary{
+    color: var(--secondary);
+}
+
+/* ------------- CONTROLS ------------- */
+/* ------------- CONTROLS ------------- */
+/* ------------- CONTROLS ------------- */
+
+.paused #pause,
+.silence #musicoff,
+html:not(.paused) #start,
+html:not(.silence) #musicon {
+    display: none;
+}
+
+.sr-only{
+    width: 1px;
+    height: 1px;
+    position: absolute;
+    overflow: hidden;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    appearance: none;
+}
