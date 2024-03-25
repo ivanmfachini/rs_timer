@@ -1,5 +1,5 @@
-import './jsmodules/toggle-mode.js';
-import timer from './jsmodules/timer.js';
+import '../modules/toggle-mode.js';
+import timer from '../modules/timer.js';
 
 const controls_arr = Array.prototype.slice.call(document.getElementById("controls").children);
 // document.getElementById("controls").children returns an HTML collection, not an array
@@ -7,11 +7,11 @@ const controls_arr = Array.prototype.slice.call(document.getElementById("control
 
 controls_arr.forEach(element => {
     element.addEventListener('click',(event)=>{
-        const doc = document.documentElement.classList;
+        const doc_classes = document.documentElement.classList;
         timer[event.target.id]();
-        if((timer.isrunning && !doc.contains('running')) || (!timer.isrunning && doc.contains('running'))){
-            doc.toggle('running');
-            doc.toggle('paused')
+        if((timer.isrunning && !doc_classes.contains('running')) || (!timer.isrunning && doc_classes.contains('running'))){
+            doc_classes.toggle('running');
+            doc_classes.toggle('paused')
         }
     })
 });
